@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInputFinished(String text) {
                 editText.setText(text);
+                editText.setSelection(text.length());
             }
         };
         keyboard.setOnInputListener(onInputListener);
