@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e0e0e0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="1"
+            app:input_action="num_one" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="2"
+            app:input_action="num_two" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="3"
+            app:input_action="num_three" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardImage
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@mipmap/keyboard_down_icon"
+            app:input_action="keyboard_hide" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e0e0e0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="4"
+            app:input_action="num_four" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="5"
+            app:input_action="num_five" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardButton
+            style="@style/KeyboardTextView"
+            android:text="6"
+            app:input_action="num_six" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0" />
+
+        <zy.keyboard.KeyboardImage
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@mipmap/keyboard_delete_icon"
+            app:input_action="delete" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e0e0e0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120.5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="7"
+                    app:input_action="num_seven" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#e0e0e0" />
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="8"
+                    app:input_action="num_eight" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#e0e0e0" />
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="9"
+                    app:input_action="num_nine" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#e0e0e0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="."
+                    app:input_action="num_point" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#e0e0e0" />
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="0"
+                    app:input_action="num_zero" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#e0e0e0" />
+
+                <zy.keyboard.KeyboardButton
+                    style="@style/KeyboardTextView"
+                    android:text="00"
+                    app:input_action="num_double_zero" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent" />
+
+        <zy.keyboard.KeyboardButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="-0.5dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:text="完成"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:input_action="enter" />
+
+    </LinearLayout>
+
+</LinearLayout>

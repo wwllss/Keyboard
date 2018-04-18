@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 键盘 -->
+    <attr name="input_action">
+        <enum name="num_zero" value="0" />
+        <enum name="num_one" value="1" />
+        <enum name="num_two" value="2" />
+        <enum name="num_three" value="3" />
+        <enum name="num_four" value="4" />
+        <enum name="num_five" value="5" />
+        <enum name="num_six" value="6" />
+        <enum name="num_seven" value="7" />
+        <enum name="num_eight" value="8" />
+        <enum name="num_nine" value="9" />
+        <enum name="num_point" value="10" />
+        <enum name="num_double_zero" value="11" />
+        <enum name="keyboard_hide" value="12" />
+        <enum name="delete" value="13" />
+        <enum name="enter" value="14" />
+    </attr>
+    <declare-styleable name="KeyboardButton">
+        <attr name="input_action" />
+    </declare-styleable>
+    <declare-styleable name="KeyboardImage">
+        <attr name="input_action" />
+    </declare-styleable>
+</resources>
