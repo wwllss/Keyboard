@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 
 /**
  * @author zhangyuan
- * @date 2018/3/30.
+ * created on 2018/3/30.
  */
 class KeyboardButton extends android.support.v7.widget.AppCompatTextView implements KeyboardView {
 

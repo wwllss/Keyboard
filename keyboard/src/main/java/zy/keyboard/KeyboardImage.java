@@ -9,7 +9,7 @@ import static zy.keyboard.KeyboardButton.NO_ACTION;
 
 /**
  * @author zhangyuan
- * @date 2018/3/30.
+ * created on 2018/3/30.
  */
 class KeyboardImage extends android.support.v7.widget.AppCompatImageView implements KeyboardView {
 

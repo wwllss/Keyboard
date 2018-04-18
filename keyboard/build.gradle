@@ -1,9 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
-
-
 
     defaultConfig {
         minSdkVersion 14
@@ -15,6 +14,10 @@ android {
 
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,9 +27,17 @@ android {
 
 }
 
+publish {
+    userOrg = 'wwllss'
+    groupId = 'zy.keyboard'
+    artifactId = 'keyboard'
+    publishVersion = '0.0.1'
+    desc = 'Android keyboard'
+    website = 'https://github.com/wwllss/Keyboard'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

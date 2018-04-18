@@ -5,7 +5,7 @@ import android.text.TextWatcher;
 
 /**
  * @author zhangyuan
- * @date 2018/3/30.
+ *         created on 2018/3/30.
  */
 public abstract class SimpleTextWatcher implements TextWatcher {
 

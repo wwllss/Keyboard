@@ -16,7 +16,7 @@ import android.widget.EditText;
 
 /**
  * @author zhangyuan
- * @date 2018/4/2.
+ * created on 2018/4/2.
  */
 public class KeyboardDialog extends DialogFragment {
 

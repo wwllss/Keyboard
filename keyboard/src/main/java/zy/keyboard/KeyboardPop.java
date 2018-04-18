@@ -14,7 +14,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * @author zhangyuan
- * @date 2018/4/3.
+ * created on 2018/4/3.
  */
 public class KeyboardPop extends PopupWindow {
 
