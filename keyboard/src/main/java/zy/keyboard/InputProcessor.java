@@ -15,88 +15,86 @@ import java.util.Map;
 public interface InputProcessor {
 
     /**
-     * @param e     e
-     * @param start selection start
-     * @param end   selection end
+     * @param e e
      * @return Editable
      */
-    Editable process(Editable e, int start, int end);
+    Editable process(Editable e);
 
     class Factory {
 
         static InputProcessor NUM_ZERO = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "0", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "0");
             }
         };
 
         static InputProcessor NUM_ONE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "1", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "1");
             }
         };
 
         static InputProcessor NUM_TWO = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "2", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "2");
             }
         };
 
         static InputProcessor NUM_THREE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "3", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "3");
             }
         };
 
         static InputProcessor NUM_FOUR = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "4", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "4");
             }
         };
 
         static InputProcessor NUM_FIVE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "5", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "5");
             }
         };
 
         static InputProcessor NUM_SIX = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "6", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "6");
             }
         };
 
         static InputProcessor NUM_SEVEN = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "7", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "7");
             }
         };
 
         static InputProcessor NUM_EIGHT = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "8", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "8");
             }
         };
 
         static InputProcessor NUM_NINE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "9", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "9");
             }
         };
 
         static InputProcessor NUM_POINT = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
+            public Editable process(Editable e) {
                 String str = e.toString();
                 char charPoint = '.';
                 if (str.indexOf(charPoint) >= 0) {
@@ -108,25 +106,27 @@ public interface InputProcessor {
 
         static InputProcessor NUM_DOUBLE_ZERO = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
-                return insert(e, "00", start, end);
+            public Editable process(Editable e) {
+                return insert(e, "00");
             }
         };
 
         static InputProcessor KEYBOARD_HIDE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
+            public Editable process(Editable e) {
                 return e;
             }
         };
 
         static InputProcessor DELETE = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
+            public Editable process(Editable e) {
                 if (TextUtils.isEmpty(e)) {
                     Selection.setSelection(e, 0);
                     return e;
                 }
+                int start = Selection.getSelectionStart(e);
+                int end = Selection.getSelectionEnd(e);
                 if (start == end) {
                     int index = start - 1;
                     if (index >= 0) {
@@ -146,7 +146,7 @@ public interface InputProcessor {
 
         static InputProcessor ENTER = new InputProcessor() {
             @Override
-            public Editable process(Editable e, int start, int end) {
+            public Editable process(Editable e) {
                 return e;
             }
         };
@@ -178,13 +178,15 @@ public interface InputProcessor {
             }
             return new InputProcessor() {
                 @Override
-                public Editable process(Editable e, int start, int end) {
+                public Editable process(Editable e) {
                     return e;
                 }
             };
         }
 
-        private static Editable insert(Editable e, String input, int start, int end) {
+        private static Editable insert(Editable e, String input) {
+            int start = Selection.getSelectionStart(e);
+            int end = Selection.getSelectionEnd(e);
             if (start == end) {
                 Editable insert = e.insert(start, input);
                 Selection.setSelection(insert, start + input.length());

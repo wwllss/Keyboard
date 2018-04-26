@@ -93,12 +93,8 @@ public class NumberKeyboard extends LinearLayout {
                 boolean interceptKeyDown = onKeyCodeListener != null
                         && onKeyCodeListener.onKeyDown(action);
                 if (!interceptKeyDown) {
-                    int start = editText.getSelectionStart();
-                    int end = editText.getSelectionEnd();
                     Editable afterInput = InputProcessor.Factory.get(action).process(
-                            editText.getText(),
-                            start,
-                            end
+                            editText.getText()
                     );
                     if (onInputListener != null) {
                         onInputListener.onInputChanged(afterInput.toString());

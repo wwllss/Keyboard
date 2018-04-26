@@ -1,5 +1,5 @@
 # Keyboard
 Android Keyboard
 ```
-compile 'zy.keyboard:keyboard:0.0.1'
+compile 'zy.keyboard:keyboard:0.0.2'
 ```
