@@ -61,11 +61,6 @@ public class KeyboardDialog extends DialogFragment {
                     onInputListener.onInputChanged(text);
                 }
             }
-
-            @Override
-            public void onInputFinished(String text) {
-                dismiss();
-            }
         });
         if (provideAttachment == null) {
             throw new RuntimeException("must provide an EditText view to attach");
@@ -73,14 +68,6 @@ public class KeyboardDialog extends DialogFragment {
             keyboard.attach(provideAttachment.provide());
         }
         return view;
-    }
-
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        super.onDismiss(dialog);
-        if (onInputListener != null) {
-            onInputListener.onInputFinished(keyboard.getText());
-        }
     }
 
     @NonNull

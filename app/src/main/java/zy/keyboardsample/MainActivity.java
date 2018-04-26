@@ -39,12 +39,6 @@ public class MainActivity extends AppCompatActivity {
             public void onInputChanged(String text) {
                 editText.setText(text);
             }
-
-            @Override
-            public void onInputFinished(String text) {
-                editText.setText(text);
-                editText.setSelection(text.length());
-            }
         };
         keyboard.setOnInputListener(onInputListener);
         keyboard.setOnKeyCodeListener(new OnKeyCodeListener() {
@@ -53,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 if (InputAction.ENTER == keyCode
                         || InputAction.KEYBOARD_HIDE == keyCode) {
                     keyboard.detach();
-                    onInputListener.onInputFinished(keyboard.getText());
+                    editText.setSelection(editText.getText().length());
                     return true;
                 }
                 return false;

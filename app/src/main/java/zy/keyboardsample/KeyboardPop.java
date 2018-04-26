@@ -41,14 +41,6 @@ public class KeyboardPop extends PopupWindow {
         setTouchable(true);
         setFocusable(false);
         setOutsideTouchable(false);
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                if (onInputListener != null) {
-                    onInputListener.onInputFinished(keyboard.getText());
-                }
-            }
-        });
         keyboard = (NumberKeyboard) contentView.findViewById(R.id.keyboard);
         keyboard.setOnKeyCodeListener(new OnKeyCodeListener() {
             @Override
@@ -66,13 +58,6 @@ public class KeyboardPop extends PopupWindow {
             public void onInputChanged(String text) {
                 if (onInputListener != null) {
                     onInputListener.onInputChanged(text);
-                }
-            }
-
-            @Override
-            public void onInputFinished(String text) {
-                if (onInputListener != null) {
-                    onInputListener.onInputFinished(text);
                 }
             }
         });

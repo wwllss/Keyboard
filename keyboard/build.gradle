@@ -31,7 +31,7 @@ publish {
     userOrg = 'wwllss'
     groupId = 'zy.keyboard'
     artifactId = 'keyboard'
-    publishVersion = '0.0.3'
+    publishVersion = '0.0.4'
     desc = 'Android keyboard'
     website = 'https://github.com/wwllss/Keyboard'
 }
