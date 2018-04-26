@@ -1,4 +1,4 @@
-package zy.keyboard;
+package zy.keyboardsample;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
+
+import zy.keyboard.InputAction;
+import zy.keyboard.NumberKeyboard;
+import zy.keyboard.OnInputListener;
+import zy.keyboard.OnKeyCodeListener;
 
 /**
  * @author zhangyuan

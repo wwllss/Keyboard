@@ -1,4 +1,4 @@
-package zy.keyboard;
+package zy.keyboardsample;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+
+import zy.keyboard.InputAction;
+import zy.keyboard.NumberKeyboard;
+import zy.keyboard.OnInputListener;
+import zy.keyboard.OnKeyCodeListener;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
