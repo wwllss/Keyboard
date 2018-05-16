@@ -22,73 +22,10 @@ public interface InputProcessor {
 
     class Factory {
 
-        static InputProcessor NUM_ZERO = new InputProcessor() {
+        static InputProcessor DEFAULT = new InputProcessor() {
             @Override
             public Editable process(Editable e) {
-                return insert(e, "0");
-            }
-        };
-
-        static InputProcessor NUM_ONE = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "1");
-            }
-        };
-
-        static InputProcessor NUM_TWO = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "2");
-            }
-        };
-
-        static InputProcessor NUM_THREE = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "3");
-            }
-        };
-
-        static InputProcessor NUM_FOUR = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "4");
-            }
-        };
-
-        static InputProcessor NUM_FIVE = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "5");
-            }
-        };
-
-        static InputProcessor NUM_SIX = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "6");
-            }
-        };
-
-        static InputProcessor NUM_SEVEN = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "7");
-            }
-        };
-
-        static InputProcessor NUM_EIGHT = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "8");
-            }
-        };
-
-        static InputProcessor NUM_NINE = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "9");
+                return e;
             }
         };
 
@@ -104,19 +41,7 @@ public interface InputProcessor {
             }
         };
 
-        static InputProcessor NUM_DOUBLE_ZERO = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return insert(e, "00");
-            }
-        };
-
-        static InputProcessor KEYBOARD_HIDE = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return e;
-            }
-        };
+        static InputProcessor KEYBOARD_HIDE = DEFAULT;
 
         static InputProcessor DELETE = new InputProcessor() {
             @Override
@@ -144,29 +69,24 @@ public interface InputProcessor {
             }
         };
 
-        static InputProcessor ENTER = new InputProcessor() {
-            @Override
-            public Editable process(Editable e) {
-                return e;
-            }
-        };
+        static InputProcessor ENTER = DEFAULT;
 
         @SuppressLint("UseSparseArrays")
         private static final Map<Integer, InputProcessor> PROCESSOR_MAP = new HashMap<>();
 
         static {
-            PROCESSOR_MAP.put(InputAction.NUM_ZERO, NUM_ZERO);
-            PROCESSOR_MAP.put(InputAction.NUM_ONE, NUM_ONE);
-            PROCESSOR_MAP.put(InputAction.NUM_TWO, NUM_TWO);
-            PROCESSOR_MAP.put(InputAction.NUM_THREE, NUM_THREE);
-            PROCESSOR_MAP.put(InputAction.NUM_FOUR, NUM_FOUR);
-            PROCESSOR_MAP.put(InputAction.NUM_FIVE, NUM_FIVE);
-            PROCESSOR_MAP.put(InputAction.NUM_SIX, NUM_SIX);
-            PROCESSOR_MAP.put(InputAction.NUM_SEVEN, NUM_SEVEN);
-            PROCESSOR_MAP.put(InputAction.NUM_EIGHT, NUM_EIGHT);
-            PROCESSOR_MAP.put(InputAction.NUM_NINE, NUM_NINE);
+            PROCESSOR_MAP.put(InputAction.NUM_ZERO, newInsert("0"));
+            PROCESSOR_MAP.put(InputAction.NUM_ONE, newInsert("1"));
+            PROCESSOR_MAP.put(InputAction.NUM_TWO, newInsert("2"));
+            PROCESSOR_MAP.put(InputAction.NUM_THREE, newInsert("3"));
+            PROCESSOR_MAP.put(InputAction.NUM_FOUR, newInsert("4"));
+            PROCESSOR_MAP.put(InputAction.NUM_FIVE, newInsert("5"));
+            PROCESSOR_MAP.put(InputAction.NUM_SIX, newInsert("6"));
+            PROCESSOR_MAP.put(InputAction.NUM_SEVEN, newInsert("7"));
+            PROCESSOR_MAP.put(InputAction.NUM_EIGHT, newInsert("8"));
+            PROCESSOR_MAP.put(InputAction.NUM_NINE, newInsert("9"));
             PROCESSOR_MAP.put(InputAction.NUM_POINT, NUM_POINT);
-            PROCESSOR_MAP.put(InputAction.NUM_DOUBLE_ZERO, NUM_DOUBLE_ZERO);
+            PROCESSOR_MAP.put(InputAction.NUM_DOUBLE_ZERO, newInsert("00"));
             PROCESSOR_MAP.put(InputAction.KEYBOARD_HIDE, KEYBOARD_HIDE);
             PROCESSOR_MAP.put(InputAction.DELETE, DELETE);
             PROCESSOR_MAP.put(InputAction.ENTER, ENTER);
@@ -176,25 +96,11 @@ public interface InputProcessor {
             if (PROCESSOR_MAP.containsKey(action)) {
                 return PROCESSOR_MAP.get(action);
             }
-            return new InputProcessor() {
-                @Override
-                public Editable process(Editable e) {
-                    return e;
-                }
-            };
+            return DEFAULT;
         }
 
-        private static Editable insert(Editable e, String input) {
-            int start = Selection.getSelectionStart(e);
-            int end = Selection.getSelectionEnd(e);
-            if (start == end) {
-                Editable insert = e.insert(start, input);
-                Selection.setSelection(insert, start + input.length());
-                return insert;
-            }
-            Editable replace = e.replace(start, end, input);
-            Selection.setSelection(replace, start + input.length());
-            return replace;
+        static InputProcessor newInsert(String inputContent) {
+            return new InsertProcessor(inputContent);
         }
 
     }
